@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation from the different anchors using javascript</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: rgba(0, 0, 0, 0.1);
+            display: grid;
+            place-items: center;
+        }
+
+        #main {
+            margin-top: 70px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            border-radius: 6px;
+            width: fit-content;
+            padding: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #container li {
+            list-style: none;
+            color: rgb(98, 96, 96);
+            font-size: 17px;
+            font-weight: 450;
+            letter-spacing: .80px;
+            cursor: pointer;
+        }
+
+        #container li.activeMenu {
+            position: relative;
+            color: blue;
+            font-weight: 500;
+        }
+
+        #container li.activeMenu::before {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            border-radius: 4px;
+            height: 2.60px;
+            width: 100%;
+            background: blue;
+            transition: .5s linear;
+        }
+
+        #container .menus {
+            padding-bottom: 4px;
+            display: flex;
+            gap: 25px;
+        }
+
+        .sectionArea {
+            margin-top: 30px;
+        }
+
+        .sectionArea .commonArea {
+            width: 500px;
+            display: none;
+        }
+
+        .sectionArea .commonArea h2 {
+            margin-bottom: 20px;
+            color: blue;
+        }
+
+        .sectionArea .commonArea button {
+            padding: 9px 20px;
+            border-radius: 4px;
+            border: 1px solid gainsboro;
+            margin-top: 7px;
+            cursor: pointer;
+        }
+
+        .sectionArea .commonArea.displaySection {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="container">
+            <div class="menus">
+                <li>Home</li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Blogs</li>
+                <li>Settings</li>
+            </div>
+        </div>
+        <div class="sectionArea">
+            <div class="home commonArea">
+                <h2>Home</h2>
+                <p>This is Home section and Welcome to our home section Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Officia dignissimos totam hic atque reiciendis in vitae, quos explicabo enim est
+                    quo. Temporibus dolores corporis, repellat excepturi doloribus impedit illo quisquam. Voluptate,
+                    nisi consequatur. Quo, blanditiis? Tenetur illum voluptatum, voluptatibus cum consequatur inventore
+                    molestiae recusandae corporis nesciunt tempora ex, in sequi?
+                </p>
+                <button>Home</button>
+            </div>
+
+            <div class="about commonArea">
+                <h2>About</h2>
+                <p>This is About section and Welcome to our About section Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Officia dignissimos totam hic atque reiciendis in vitae, quos explicabo enim est
+                    quo. Temporibus dolores corporis, repellat excepturi doloribus impedit illo quisquam. Voluptate,
+                    nisi consequatur. Quo, blanditiis? Tenetur illum voluptatum, voluptatibus cum consequatur inventore
+                    molestiae recusandae corporis nesciunt tempora ex, in sequi?
+                </p>
+                <button>About</button>
+            </div>
+
+            <div class="services commonArea">
+                <h2>Services</h2>
+                <p>This is Services section and Welcome to our Services section Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Officia dignissimos totam hic atque reiciendis in vitae, quos explicabo enim est
+                    quo. Temporibus dolores corporis, repellat excepturi doloribus impedit illo quisquam. Voluptate,
+                    nisi consequatur. Quo, blanditiis? Tenetur illum voluptatum, voluptatibus cum consequatur inventore
+                    molestiae recusandae corporis nesciunt tempora ex, in sequi?
+                </p>
+                <button>Services</button>
+            </div>
+
+            <div class="blogs commonArea">
+                <h2>Blogs</h2>
+                <p>This is Blogs section and Welcome to our Blogs section Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Officia dignissimos totam hic atque reiciendis in vitae, quos explicabo enim est
+                    quo. Temporibus dolores corporis, repellat excepturi doloribus impedit illo quisquam. Voluptate,
+                    nisi consequatur. Quo, blanditiis? Tenetur illum voluptatum, voluptatibus cum consequatur inventore
+                    molestiae recusandae corporis nesciunt tempora ex, in sequi?
+                </p>
+                <button>Blogs</button>
+            </div>
+
+            <div class="settings commonArea">
+                <h2>Settings</h2>
+                <p>This is Settings section and Welcome to our Settings section Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Officia dignissimos totam hic atque reiciendis in vitae, quos explicabo enim est
+                    quo. Temporibus dolores corporis, repellat excepturi doloribus impedit illo quisquam. Voluptate,
+                    nisi consequatur. Quo, blanditiis? Tenetur illum voluptatum, voluptatibus cum consequatur inventore
+                    molestiae recusandae corporis nesciunt tempora ex, in sequi?
+                </p>
+                <button>Settings</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Javascript code  -->
+    <script>
+        function addActiveClass() {
+            const listItems = document.querySelectorAll('.menus li')
+            listItems.forEach((el) => {
+                el.onclick = () => {
+                    listItems.forEach((el2) => { el2.classList.remove('activeMenu') })
+                    el.classList.add('activeMenu')
+                    sectionArea()
+                }
+            })
+
+        }
+        addActiveClass()
+
+        function sectionArea() {
+            const areaItems = document.querySelectorAll('.commonArea')
+
+            areaItems.forEach((el) => {
+                areaItems.forEach((el3) => {  el3.classList.remove('displaySection') })
+               
+                el.classList.add('displaySection')
+                console.log(el);   
+ 
+            })
+        }
+
+
+    </script>
+</body>
+
+</html> 

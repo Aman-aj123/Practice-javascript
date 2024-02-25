@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active class removing and adding</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #list-itms {
+            list-style: none;
+            width: 100%;
+            display: flex; 
+            gap: 25px;
+            background: #000;
+            padding: 20px 20px;
+        }
+
+        .anchor-itm {
+            cursor: pointer;
+            font-size: 17px;
+            color: white;
+            transition: .2s linear;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .anchor-itm:hover {
+            background: #ffff;
+            color: #000;
+        }
+
+        .anchor-itm.active {
+            color: #000;
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list-itms"> <!-- Use <ul> for unordered lists -->
+        <li class="anchor-itm">Home</li>
+        <li class="anchor-itm">About</li>
+        <li class="anchor-itm">Services</li>
+        <li class="anchor-itm">Settings</li>
+        <li class="anchor-itm">Others</li>
+    </ul>
+
+    <script>
+
+        window.addEventListener('load', clickAnchor)
+
+        function clickAnchor() {
+            const anchorEl = document.querySelectorAll('.anchor-itm');
+            let selectedEl = null;
+
+            anchorEl.forEach((el) => {
+                el.onclick = function () {
+                    if (selectedEl) {
+                        selectedEl.classList.remove('active')
+                    }
+                    el.classList.add('active')
+                    selectedEl = el; 
+                }
+            })
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

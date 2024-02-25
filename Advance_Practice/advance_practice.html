@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Advance Javascript practice</title>
+</head>
+
+<body>
+
+
+     <script>
+
+          // Question #1. -----> Make a sentence and reverse it's each word example: "Hellow bhai" "wolleH, iahb"
+          function reverseWords() {
+               const sentence = "I am reversed";
+               const splitSentence = sentence.toUpperCase().split(" ");
+               let savedWords = splitSentence.map((words) => {
+                    const splitWords = words.split("").reverse().join("");
+                    return splitWords;
+               });
+               const finalWords = savedWords.join(" ");
+               // console.log(finalWords);
+          };
+          // reverseWords(); 
+
+
+          // Question #2.------> Check if an object is array or not
+          function isArray(element) {
+               let checkArray = Array.isArray(element) == true ? "Yes, It is an array" : "No, it is not an array";
+               // console.log(checkArray);
+
+          };
+          let nice = {
+               name: "Aman",
+               work: "frontend developer"
+          }
+          // isArray(nice);
+
+
+
+          // Question #3.-------> How to do an empty an array without loop and intializing empty
+          function emptyArray() {
+               let numArr = [1, 2, 3, 4, 7, 8, 9];
+               numArr.length = 0
+               // console.log(numArr);
+          };
+          // emptyArray();
+
+
+          // Question #4.-------> Check if a given number is an Integer or not? without using 'Number.isInteger()' function
+
+
+          function isInteger(number) {
+               let checkNum = number % 1 === 0 ? "Yes, it is a number" : "It is not a number";
+               // console.log(checkNum);
+          };
+          // isInteger(5);
+
+          // Question #5.------> Make a function which takes an array and return it's duplicate example let arr = [5,6] : [5,6,5,6]
+
+          function duplicateArray(items) {
+               const addArrays = items.concat(items);
+               // console.log(addArrays);
+          };
+          // duplicateArray([1, 2, 3, 4, 5]);
+
+          // Question #6.----> Write a function which reverse a given number
+          function reverseNumber(num) {
+               let strNum = `${num}`;
+               // let splitNum = strNum.split("").reverse().join("");
+               // const finalNum = Number(splitNum);
+               // console.log(finalNum);
+               // let a = 0;
+               while (num > 0) {
+                    // num % 10;
+                    // console.log("nice")
+                    // num = Math.floor(num / 10);
+               }
+
+          }
+          reverseNumber(124);
+
+
+     </script>
+
+</body>
+
+</html>

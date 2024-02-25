@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Random Passoword generator. | Javascript practice</title>
+</head>
+
+<body>
+
+
+     <script>
+
+          function generateRandomPassoword(length) {
+               const passAlphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+               const passNumbers = "0123456789";
+               const specialChar = "@$#%^&*"
+
+               const passFullPattern = `${passAlphabets}${specialChar}${passNumbers}`;
+
+               let storeValues = "";
+
+               for (let i = 0; i < length; i++) {
+                    const randomChar = Math.floor(Math.random() * passFullPattern.length);
+                    const mainPassoword = passFullPattern[randomChar]
+                    storeValues += mainPassoword;
+               }
+               console.log(storeValues)
+          }
+          generateRandomPassoword(10);
+
+     </script>
+</body>
+
+</html>

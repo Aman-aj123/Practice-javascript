@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-" w"idth, initial-scale=1.0">
+     <title>Javascript Interview questions</title>
+</head>
+
+<body>
+
+     <h1>Javascript interview questions</h1>
+
+     <h2 id="displayNotes"></h2>
+
+     <script>
+
+
+          //----> #1. Solution:
+
+          const students = [
+               "Mohan",
+               "Rohan",
+               "Sohan",
+               "Harry",
+               "Aman",
+               "Nainika",
+               "Vishal",
+               "Rahul",
+               "Sahil",
+               "Ankit",
+               "Abhishek",
+               "Ajit",
+               "Vishal"
+          ]
+          const houses = [];
+
+          /*     students.forEach((element) => {
+                    if (element.length < 6) {
+                         houses.push("Gryffindor");
+                         console.log(`Lenght is less than six: ${element}`);
+                    } else if (element.length < 8) {
+                         houses.push("Hufflepuff");
+                         console.log(`Lenght is less than eight: ${element}`);
+                    } else if (element.length < 12) {
+                         houses.push("Ravenclaw");
+                         console.log(`Lenght is less than twelve: ${element}`);
+                    } else if (element.lenght >= 12) {
+                         console.log(`Lenght is greater than equal to twelve: ${element}`);
+                         houses.push("Slytherin");
+                    }
+               });
+     
+               console.log(houses); */
+
+
+          //-----> #2. Solution:
+          /*  const numbers = ["1", "1", "2", "4", "5", "8", "8", "9", "9", "0", "0", "3", "5", "5", "6", 6];
+            const finaleNumbers = new Set();
+  
+            numbers.forEach((element) => {
+                 if (finaleNumbers.has(element)) { 
+                      return;
+                 } else { 
+                      finaleNumbers.add(element)
+                      console.log(element);
+                 }
+            }) */
+
+
+
+          //-------> #3. Solution:
+          /*  const appendReveresedString = (stringName) => {
+                 const splitedString = stringName.split(" ");
+                 const reversedString = splitedString.reverse().join(" ");
+  
+                 const mirrorString = `${stringName} ${reversedString}`;
+  
+                 console.log(mirrorString);
+            };
+            appendReveresedString("What is your name??"); */
+
+
+
+          //------> #4. Solution:
+          /*     const checkPassword = (password) => {
+                    const hasEightDigits = password.length >= 8;
+                    const hasUpperCaseLetters = /[A-Z]/.test(password);
+                    const hasLowerCaseLetters = /[a-z]/.test(password);
+                    const hasOneDigit = /\d/.test(password);
+     
+                    return hasEightDigits && hasUpperCaseLetters && hasLowerCaseLetters && hasOneDigit;
+               };
+     
+               const isValid = checkPassword("developerAman33");
+     
+               if (isValid) {
+                    console.log("Your password is strong.");
+               } else {
+                    console.log("Your password is weak.");
+               }  */
+
+
+
+          //------> #5. Solution:
+          /*  const sumNumbers = (numbers) => {
+                 let totalSum = 0;
+                 let isNegative = false;
+  
+                 numbers.forEach(element => {
+                      const parsedNumber = parseInt(element);
+  
+                      if (parsedNumber < 0) {
+                           isNegative = true;
+                      } else {
+                           totalSum += parsedNumber;
+                      }
+                 });
+  
+                 if (isNegative) {
+                      console.log("Numbers cannot be in negative...");
+                 } else {
+                      console.log(totalSum);
+                 }
+            };
+  
+            const sumArray = [4, -5, 6, 7, 8, 9];
+  
+            sumNumbers(sumArray); */
+
+
+          //-----> #6. Solution:
+          /*  const vowelCounter = (words) => {
+                 const vowels = "aeiouAEIOU";
+                 let isVowel = 0;
+  
+                 for (const char of words) {
+                      if (vowels.includes(char)) {
+                           isVowel += 1;
+                      }
+                 }
+                 console.log(`The letters contains ${isVowel} vowels...`);
+            };
+  
+            let sentence = "I am a vowel";
+            vowelCounter(sentence); */
+
+
+
+          //----> #7. Solution:
+          /*  const notesItems = document.querySelector("#displayNotes");
+  
+            const saveNotes = () => {
+                 const notes = prompt("Enter your texts to save a notes");
+                 
+                 notesItems.innerHTML = notes;
+                 saveData();
+                 loadData();
+            }
+            saveNotes();
+  
+            const saveData = () => {
+                 localStorage.setItem("Notes", notesItems.innerHTML);
+            }
+  
+            const loadData = () => {
+                 const getData = localStorage.getItem("Notes");
+                 if (getData) {
+                      notesItems.innerHTML = getData;
+                 }
+            };
+  */
+
+
+          //----> #8. Solution:
+          /* const printMultiplitNumbers = (message, delay) => {
+                return new Promise((resolve, reject) => {
+                     setTimeout(() => {
+                          resolve(message);
+                     }, 1000 * delay);
+                });
+           };
+ 
+ 
+           const multipliyNumber = async () => {
+                const numArr = [5, 6, 7, 8, 2, 4, 5];
+ 
+                for (let i = 0; i < numArr.length; i++) {
+                     const multiplyNum = numArr[i] * 2;
+ 
+                     const callFunc = await printMultiplitNumbers(multiplyNum, 1);
+                     console.log(callFunc);
+                }
+ 
+           };
+ 
+           multipliyNumber() */
+
+
+          //----> #9. Solution:
+          /*  const showOrderMsg = (message, dealy) => {
+                 return new Promise((resolve, reject) => {
+                      setTimeout(() => {
+                           resolve(message);
+                      }, dealy * 1000)
+                 });
+            };
+  
+            const confirmOrder = async () => {
+                 for (let i = 0; i <= 10; i++) {
+                      const randomNum = Math.floor(Math.random() * 5) + 1;
+                      const sendMsg = await showOrderMsg(`Order confirmed... after ${randomNum} seconds`, randomNum);
+                      console.log(sendMsg);
+                 };
+            };
+  
+            confirmOrder(); */
+
+
+          //----> #10. Solution:
+          /*   const filterProducts = (products, filterName) => {
+                  return products.filter(element => element.productName === filterName);
+             };
+   
+             const productsArr = [
+                  {
+                       productName: "Mobile",
+                       quantity: 5,
+                       price: "10,000 rs"
+                  },
+                  {
+                       productName: "Laptop",
+                       quantity: 3,
+                       price: "50,000 rs"
+                  },
+                  {
+                       productName: "Headphones",
+                       quantity: 10,
+                       price: "2,000 rs"
+                  },
+                  {
+                       productName: "Smartwatch",
+                       quantity: 7,
+                       price: "8,000 rs"
+                  },
+                  {
+                       productName: "Smartwatch",
+                       quantity: 55,
+                       price: "50,000 rs"
+                  },
+             ];
+   
+            const finalProducts =  filterProducts(productsArr, "Mobile");
+            console.log(finalProducts); */
+
+
+          //-----> #11. Solution:
+          /*   const setAuthToken = (token, expiration) => {
+                  const storeData = [
+                       {
+                            token: token,
+                            expiration: `${expiration}`,
+                            expireDate: `${new Date().getDate()}`,
+                       }
+                  ]
+   
+                  localStorage.setItem("Auhentication", JSON.stringify(storeData));
+             }
+   
+             setAuthToken("developerAman@gmail.com", "2hr"); */
+
+
+          //-----> #12. Solution:
+          /*   const calculateTotal = (productArr) => {
+                  let totalPrices = 0;
+                  productArr.forEach(element => {
+                       const removeComma = element.price.replace(",", "");
+                       const removeRs = removeComma.replace("rs", "");
+                       // totalPrices += parseInt(element.price);
+                       totalPrices += parseInt(removeRs);
+                  });
+                  console.log(totalPrices);
+             };
+   
+             const productsArr = [
+                  {
+                       productName: "Mobile",
+                       quantity: 5,
+                       price: "10,000 rs"
+                  },
+                  {
+                       productName: "Laptop",
+                       quantity: 3,
+                       price: "50,000 rs"
+                  },
+                  {
+                       productName: "Headphones",
+                       quantity: 10,
+                       price: "2,000 rs"
+                  },
+                  {
+                       productName: "Smartwatch",
+                       quantity: 7,
+                       price: "8,000 rs"
+                  },
+                  {
+                       productName: "Smartwatch",
+                       quantity: 55,
+                       price: "50,000 rs"
+                  },
+             ];
+             calculateTotal(productsArr); */
+
+
+
+          //------> #13. Solution:
+          const smoothScrollToTop = () => {
+               // Scroll to the top with smooth behavior
+               window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+               });
+          };
+
+          // Example usage:
+          // Call this function when you want to scroll to the top smoothly
+          smoothScrollToTop();
+
+
+     </script>
+
+</body>
+
+</html>

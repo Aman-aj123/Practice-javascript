@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Choose fruit name user and computer game</title>
+</head>
+
+<body>
+
+     <p>Write your fruit name in inputbox from this groups: Appple, Banana, Mango, Pineapple, Guava, Grapes</p>
+     <input type="text" id="input">
+     <button id="resultBtn">Result</button>
+     <div class="resultAr">
+          <h2>You Choose: <span id="userRes"></span> And computer choose: <span id="computerRes"></span></h2>
+          <h2 id="mainRes"></h2>
+     </div>
+
+     <script>
+
+          function randomGame() {
+               // intializing variables 
+               const inputBox = document.querySelector('#input');
+               const resultButton = document.querySelector('#resultBtn');
+               const userVal = document.querySelector('#userRes');
+               const computerVal = document.querySelector('#computerRes')
+               const mainResult = document.querySelector('#mainRes')
+
+               // making arrays of fruits
+               const fruits = [
+                    "Apple",
+                    "Banana",
+                    "Mango",
+                    "Pineapple",
+                    "Guava",
+                    "Grapes"
+               ]
+
+               // showing random fruits when the page reload 
+               const randomNum = Math.floor(Math.random() * fruits.length)
+               const randomFruits = fruits[randomNum]
+               console.log(randomFruits)
+               // Performing actions when the user click on result button
+               resultButton.addEventListener('click', () => result())
+
+               function result() {
+                    let inputValue = inputBox.value.trim();
+                    if (inputValue == "") {
+                         alert("Please Enter Your Value First..")
+                    }
+
+                    else if (inputValue == randomFruits) {
+                         userVal.textContent = `${inputValue}`;
+                         computerVal.textContent = `${randomFruits}`;
+                         mainResult.textContent = "Congratulations You win..";
+                    }
+                    else if (inputValue !== randomFruits) {
+                         userVal.textContent = `${inputValue}`;
+                         computerVal.textContent = `${randomFruits}`;
+                         mainResult.textContent = "Sorry, You loose the game please try again...";
+                    }
+                    else {
+                         userVal.textContent = `${inputValue}`;
+                         computerVal.textContent = `${randomFruits}`;
+                    }
+                    console.log(randomFruits)
+                    inputValue = "";
+               }
+          }
+          randomGame()
+
+     </script>
+</body>
+
+</html>

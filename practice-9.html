@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Length calculator of paragraph</title>
+     <style>
+          .container {
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               margin-top: 40px;
+               flex-direction: column;
+               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+
+          #textArea {
+               font-size: 17px;
+               padding: 16px 13px;
+               border-radius: 5px;
+               border: 2px solid gray;
+               outline: none;
+               width: 400px;
+          }
+     </style>
+</head>
+
+<body>
+
+     <div class="container">
+          <div class="textArea">
+               <textarea name="" id="textArea" cols="30" rows="10"></textarea>
+          </div>
+          <div class="details-txt">
+               <strong>Length:</strong> <span id="lengthRes"></span>
+               <strong style="margin-left: 90px;">Remaining:</strong> <span id="remainRes"></span>
+          </div>
+     </div>
+
+
+
+     <script>
+
+          const textArea = document.querySelector('#textArea')
+          lengthRes = document.querySelector('#lengthRes')
+          remainRes = document.querySelector('#remainRes')
+
+          textArea.addEventListener('keyup', () => callLength())
+
+          function callLength() {
+               const textAreaVal = textArea.value;
+               lengthRes.innerHTML = textAreaVal.length;
+               remainRes.innerHTML = 200 - lengthRes.innerHTML;
+
+               if (textAreaVal.length == 200) {
+                    alert("Your chance is over...")
+                    textArea.value = ""
+                    lengthRes.innerHTML = 0;    
+                    remainRes.innerHTML = 200;
+                    const textAreaVal = textArea.value;
+                    lengthRes.innerHTML = textAreaVal.length;
+                    remainRes.innerHTML = 200 - lengthRes.innerHTML;
+               }
+          }
+
+     </script>
+
+</body>
+
+</html>

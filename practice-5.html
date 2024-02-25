@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing the different colors of the body using javascript.</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            height: 90vh;
+        }
+        #showColor {
+            font-size: 16px;
+            cursor: pointer;
+            padding: 8px 20px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+ <button id="showColor">Show Color</button>
+
+    <script>
+
+        function changeBodyColor() {
+            const colorPattern = "0123456789ABCDEF";
+            let startColorPattern = "#"
+            for (let i = 0; i < 6; i++) {
+                const randomNumbers = Math.floor(Math.random() * colorPattern.length)
+                startColorPattern += colorPattern[randomNumbers]
+            }
+            document.body.style.background = startColorPattern;
+        }
+      const showColorBtn = document.querySelector('#showColor');
+      showColorBtn.addEventListener('click', changeBodyColor)
+
+    </script>
+</body>
+ 
+</html> 

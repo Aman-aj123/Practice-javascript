@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Random Images using javascript.</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+
+        #image {
+            width: 50%;
+            height: 360px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="" alt=".." id="image">
+    <script>
+
+        const imagesURL = [
+            "randomImages/f-product-1.jpg",
+            "randomImages/f-product-2.jpg",
+            "randomImages/f-product-3.jpg",
+            "randomImages/f-product-4.jpg",
+            "randomImages/f-product-5.jpg",
+            "randomImages/f-product-6.jpg",
+            "randomImages/f-product-7.jpg", 
+            "randomImages/n4.jpg",
+            "randomImages/n5.jpg",
+            "randomImages/n6.jpg",
+            "randomImages/n7.jpg",
+            "randomImages/n8.jpg", 
+        ]
+
+        const randomImages = Math.floor(Math.random() * imagesURL.length)
+
+        const changeImage = imagesURL[randomImages]
+
+        const image = document.getElementById('image')
+        console.log(changeImage);
+        image.src = changeImage;
+
+    </script>               
+</body> 
+ 
+</html>     

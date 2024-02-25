@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sending request from server using javascript</title>
+</head>
+
+<body>
+    <script>
+
+        /* function getRequest(query) {
+             const xhr = new XMLHttpRequest()
+             xhr.open('GET', `https://newsapi.org/v2/everything?q=finance&from=2023-10-04&sortBy=publishedAt&apiKey=fc52c124858f43fc8cd8a93049fe5fac`, true)
+ 
+             xhr.onload = function () {
+                 if (this.status === 200) {
+                     let json = JSON.parse(this.responseText)
+                      console.log(json)
+                 }
+                 else {
+                     console.log("Some error occured")
+                 }
+             } 
+             xhr.send()
+         }
+         getRequest() */
+
+
+        const data = null;
+
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener('readystatechange', function () {
+            if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+            }
+        });
+
+        /* xhr.open('GET', 'https://national-weather-service.p.rapidapi.com/zones/%7Btype%7D/%7BzoneId%7D/forecast');
+         xhr.setRequestHeader('X-RapidAPI-Key', 'a53f9ede4dmsha2b4129820d417ep12db3ejsn8df537e87f7e');
+         xhr.setRequestHeader('X-RapidAPI-Host', 'national-weather-service.p.rapidapi.com'); */
+
+
+        const express = require('express');
+        const request = require('request');
+        const app = express();
+
+        const API_URL = 'https://national-weather-service.p.rapidapi.com/zones/actual_type/actual_zone/forecast'; // Replace with actual values
+
+        app.use((req, res) => {
+            const url = API_URL;
+            const headers = {
+                'X-RapidAPI-Key': 'a53f9ede4dmsha2b4129820d417ep12db3ejsn8df537e87f7e', // Replace with your API key
+                'X-RapidAPI-Host': 'national-weather-service.p.rapidapi.com'
+            };
+
+            req.pipe(request({ url, headers })).pipe(res);
+        });
+
+        app.listen(3000, () => {
+            console.log('Proxy server is running on port 3000');
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

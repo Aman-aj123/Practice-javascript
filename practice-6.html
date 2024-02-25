@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Fetching an weather api using javascript</title>
+</head>
+
+<body>
+     <script>
+          async function getWeather() {
+               const url = 'https://whatsapp-number-checker.p.rapidapi.com/api/v1/checkwanumber?number=Number%20with%20country%20code&api_key=your%20proweblook%20api%20key';
+               const options = {
+                    method: 'GET',
+                    headers: {
+                         'X-RapidAPI-Key': 'a53f9ede4dmsha2b4129820d417ep12db3ejsn8df537e87f7e',
+                         'X-RapidAPI-Host': 'whatsapp-number-checker.p.rapidapi.com'
+                    }
+               };
+
+               try {
+                    const response = await fetch(url, options);
+                    const result = await response.text();
+                    console.log(result); 
+               } catch (error) {
+                    console.error(error);
+               }
+          }
+          // getWeather("Mumbai")
+          getWeather()
+     </script>
+</body>
+
+</html>
